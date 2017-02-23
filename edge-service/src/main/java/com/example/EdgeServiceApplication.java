@@ -10,6 +10,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,6 +45,7 @@ class CraftBeerController {
     }
 
     @GetMapping("/good-beers")
+    //@CrossOrigin("http://localhost:4200")
     @HystrixCommand(fallbackMethod = "fallBack")
     public Collection<Map<String, String>> goodBeers() {
         return this.client

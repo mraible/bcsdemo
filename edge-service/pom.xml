@@ -49,7 +49,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.stormpath.spring</groupId>
+			<artifactId>stormpath-zuul-spring-cloud-starter</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -68,6 +71,13 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>Dalston.BUILD-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.stormpath.sdk</groupId>
+				<artifactId>stormpath-bom</artifactId>
+				<version>1.5.4</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
