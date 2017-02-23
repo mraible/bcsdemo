@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { Response, Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs';
+import { StormpathConfiguration } from 'angular-stormpath';
 
 @Injectable()
 export class BeerService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private config: StormpathConfiguration) { }
 
   getAll(): Observable<any> {
-    return this.http.get('http://localhost:8081/good-beers', {withCredentials: true})
+    return this.http.get(this.config.endpointPrefix + '/good-beers')
         .map((response: Response) => response.json());
   }
 }
